@@ -3,7 +3,7 @@ use serde::{Serialize, Deserialize};
 #[derive(Serialize, Deserialize)]
 pub struct ApiResponse {
    pub coord: Coord,
-   pub weather: Vec<Weather>,
+   pub weather: Vec<ApiWeather>,
    pub base: String,
    pub main: Main,
    pub visibility: f32,
@@ -13,7 +13,7 @@ pub struct ApiResponse {
    pub sys: Sys,
    pub id: f32,
    pub name: String,
-   pub cod: f32
+   pub cod: f32,
 }
 
 #[derive(Serialize, Deserialize)]
@@ -23,7 +23,7 @@ pub struct Coord {
 }
 
 #[derive(Serialize, Deserialize)]
-pub struct Weather {
+pub struct ApiWeather {
    pub id: i32,
    pub main: String,
    pub description: String,
@@ -61,8 +61,18 @@ pub struct Sys {
    pub sunset: i64
 }
 
+pub struct Temperature {
+    pub city: String,
+    pub value: i32
+}
+
 pub enum DialogStatus {
    WeatherNotAsked,
    WeatherAsked,
 //   WeatherResponsed
+}
+
+pub struct User {
+   pub id: i32,
+   pub name: String
 }
