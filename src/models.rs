@@ -61,18 +61,23 @@ pub struct Sys {
    pub sunset: i64
 }
 
+pub struct City {
+    pub value: String
+}
+
 pub struct Temperature {
     pub city: String,
     pub value: i32
 }
 
 pub enum DialogStatus {
-   WeatherNotAsked,
-   WeatherAsked,
-//   WeatherResponsed
+    NotAsked,
+    WeatherAsked,
+    SaveMeAsked
 }
 
 pub struct User {
    pub id: i32,
-   pub name: String
+   pub name: String,
+   pub city: String
 }
